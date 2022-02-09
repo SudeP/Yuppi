@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0844E659-A42E-4CF2-95D3-E2E7305FECDE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yuppi</RootNamespace>
+    <AssemblyName>Yuppi</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConnectionProvider\Inheritance\SocketConnectionProvider.cs" />
+    <Compile Include="ConnectionProvider\Inheritance\StreamConnectionProvider.cs" />
+    <Compile Include="ConnectionProvider\Interface\IConnectionProvider.cs" />
+    <Compile Include="Delegates\AcceptHandleDelegate.cs" />
+    <Compile Include="Delegates\OnAcceptDelegate.cs" />
+    <Compile Include="Delegates\OnReceiveDelegate.cs" />
+    <Compile Include="Environment\Default.cs" />
+    <Compile Include="Environment\Identifier.cs" />
+    <Compile Include="Environment\KeyValueSync.cs" />
+    <Compile Include="Environment\SpecialId.cs" />
+    <Compile Include="Manager\SocketLobbyManagement\LobbySettings.cs" />
+    <Compile Include="Manager\SocketLobbyManagement\SocketLobby.cs" />
+    <Compile Include="Manager\SocketLobbyManagement\SocketLobbyManagement.cs" />
+    <Compile Include="Networking\Abstract\SocketNode.cs" />
+    <Compile Include="Networking\Inheritance\SocketClient.cs" />
+    <Compile Include="Networking\Inheritance\SocketServer.cs" />
+    <Compile Include="Pipeline\Inheritance\SocketPipeline.cs" />
+    <Compile Include="Pipeline\Interface\IPipeline.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializer\Inheritance\BinarySocketSerializer.cs" />
+    <Compile Include="Serializer\Inheritance\JsonSocketSerializer.cs" />
+    <Compile Include="Serializer\Interface\ISerializer.cs" />
+    <Compile Include="Struct\P2PMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Networking\Interface\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
